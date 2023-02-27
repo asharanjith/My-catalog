@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 My catalog ](#-My catalog-)
+- [📖 My catalog](#about-project)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
   - [💻 Getting Started ](#-getting-started-)
@@ -17,13 +17,13 @@
   - [📝 License ](#-license-)
 
 
-# 📖 My catalog <a name="about-project"></a>
+## 📖 My catalog <a name="about-project"></a>
 
 **My catalog** This is a console app project to help you to keep a record of different types of things you own: books, music albums, movies, and games.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+## Tech Stack <a name="tech-stack"></a>
 
 <details>
 <summary>Ruby</summary>
@@ -38,7 +38,7 @@
         - [Joshua Blue-Jack](https://github.com/Tamunokuro) 
 
 
-### Key Features <a name="key-features"></a>
+## Key Features <a name="key-features"></a>
 
 - **Can add items**
 - **Can keep record of things you own**
@@ -58,13 +58,32 @@ git clone https://github.com/asharanjith/My-catalog.git
 
 ### Navigate to the folder
 
-cd Enumerable
+cd My-catalog
+bundle install
+
+### Usage
+
+To run the project, execute the following command:
+- #### Note: make sure that you have ruby installed on your machine
+
+```sh
+  ruby main.rb
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+
+```sh
+  rspec spec
+```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 
 👤 **Asha S Vijayan**
@@ -85,6 +104,11 @@ cd Enumerable
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **We will add a user interface**
+- [ ] **We will deploy our application to a server**
 
 
 ## 🤝 Contributing <a name="contributing"></a>
