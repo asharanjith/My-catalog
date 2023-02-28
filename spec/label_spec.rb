@@ -18,5 +18,11 @@ describe Label do
       label = Label.new('title', 'color')
       expect(label.items).to eq([])
     end
+    it 'When a label is added, add_item method adds an item to the items array' do
+      label = Label.new('title', 'color')
+      item = Item.new('2018')
+      label.add_item(item)
+      expect(label.items).to eq([item])
+    end
   end
 end
