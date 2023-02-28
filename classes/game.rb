@@ -11,7 +11,6 @@ class Game < Item
 
   def can_be_archived?
     item_caller = Item.new
-    return false 
-      unless item_caller.can_be_archived? == true && Date.strptime(@last_played_at, '%Y-%m-%d') < DateTime.now.prev_year(2)
+    return false unless item_caller.can_be_archived? == true && Date.strptime(@last_played_at, '%Y-%m-%d') < DateTime.now.prev_year(2)
   end
 end
