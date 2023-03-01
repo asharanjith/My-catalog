@@ -2,8 +2,6 @@ CREATE TABLE IF NOT EXISTS 'author' (
   'id' integer PRIMARY KEY AUTOINCREMENT,
   'first_name' text NOT NULL,
   'last_name' text NOT NULL,
-  'publish_date' date NOT NULL,
-  'item_id' integer REFERENCES 'item'
 );
 
 CREATE TABLE IF NOT EXISTS 'game' (
