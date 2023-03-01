@@ -1,6 +1,7 @@
 require_relative './item'
+require_relative './music'
 
-class MusicList < Item
+class MusicList
   attr_accessor :album, :genre
 
   def initialize
@@ -9,13 +10,13 @@ class MusicList < Item
   end
 
   def list_music
-    puts 'No music added' if @music.empty?
-    @albums.each { |album| puts "#{ablum.id} Publish date: #{album.publish_date} On spotify: #{album.on_spotify}" }
+    puts 'No music added' if @albums.empty?
+    @albums.each { |album| puts "id: #{album.id} Publish date: #{album.publish_date} On spotify: #{album.on_spotify}" }
     puts ''
   end
 
   def list_genre
-    puts 'No genre added' if @music.empty?
+    puts 'No genre added' if @genres.empty?
     @genres.each { |genre| puts "#{genre.id}. #{genre.name}" }
     puts ''
   end
@@ -25,12 +26,8 @@ class MusicList < Item
     publish_date = gets.chomp
     print 'On spotify (true,false) :'
     on_spotify = gets.chomp
-    on_spotify == gets.chomp
-    if on_spotify !== true || false
-      puts 'Invalid input'
-    else
-      @albums << Music.new(publish_date, spotify)
-    end
+
+    @albums << MusicAlbum.new(publish_date, on_spotify)
     puts 'Album created successfully'
   end
 
@@ -40,5 +37,4 @@ class MusicList < Item
     @genres << Genre.new(name)
     puts "#{name} genre created successfully"
   end
-
 end

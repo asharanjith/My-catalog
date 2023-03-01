@@ -3,6 +3,7 @@ require_relative './classes/music_list'
 class App
   def initialize
     @music_list = MusicList.new
+  end
 
   def options
     choices = [
@@ -55,11 +56,15 @@ class App
     end
   end
 
-  def list_music
+  def list_music_albums
     @music_list.list_music
   end
 
-  def list_genre
+  def list_genres
     @music_list.list_genre
+  end
+
+  def add_music_album
+    @music_list.create_album
   end
 end
