@@ -13,4 +13,18 @@ class Game < Item
     item_caller = Item.new
     return false unless item_caller.can_be_archived? == true && Date.strptime(@last_played_at, '%Y-%m-%d') < DateTime.now.prev_year(2)
   end
+
+  def to_json(*_args)
+    {
+      id: @id,
+      genre_id: @genre.id,
+      author_id: @author.id,
+      source_id: @source.id,
+      label_id: @label.id,
+      mulitiplayer: @mulitiplayer,
+      last_played_at: @last_played_at,
+      publish_date: @publish_date,
+      archived: @archived
+    }.to_json
+  end
 end
