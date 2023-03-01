@@ -1,4 +1,9 @@
+require_relative './classes/music_list'
+
 class App
+  def initialize
+    @music_list = MusicList.new
+
   def options
     choices = [
       'List all books',
@@ -48,5 +53,13 @@ class App
         puts 'Invalid option'
       end
     end
+  end
+
+  def list_music
+    @music_list.list_music
+  end
+
+  def list_genre
+    @music_list.list_genre
   end
 end
