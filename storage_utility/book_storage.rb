@@ -7,7 +7,6 @@ base_path = "#{Dir.pwd}/json_files"
 File.open("#{base_path}/books.json", 'w') unless File.exist?("#{base_path}/books.json")
 File.open("#{base_path}/labels.json", 'w') unless File.exist?("#{base_path}/labels.json")
 
-
 def write_data(file, data)
   case file
   when 'books'
