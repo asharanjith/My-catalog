@@ -41,7 +41,7 @@ class MusicList
 
   def save
     albums = @albums.map { |album| { id: album.id, publish_date: album.publish_date, on_spotify: album.on_spotify } }
-    return File.write('store/music.json', JSON.pretty_generate(albums))
+    File.write('store/music.json', JSON.pretty_generate(albums))
   end
 
   def recover_data
