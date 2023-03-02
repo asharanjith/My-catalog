@@ -1,8 +1,11 @@
 require './storage_utility/list_add_book'
 require './storage_utility/book_storage'
+require_relative './classes/music_list'
+require './classes/list_add_book'
 
 class App
   def initialize
+    @music_list = MusicList.new
     @list_add_book = ListAddBook.new
   end
 
@@ -57,6 +60,18 @@ class App
         puts 'Invalid option'
       end
     end
+  end
+
+  def list_music_albums
+    @music_list.list_music
+  end
+
+  def list_genres
+    @music_list.list_genre
+  end
+
+  def add_music_album
+    @music_list.create_album
   end
 
   def list_books
