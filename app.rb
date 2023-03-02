@@ -1,8 +1,10 @@
 require_relative './classes/music_list'
+require './classes/list_add_book'
 
 class App
   def initialize
     @music_list = MusicList.new
+    @list_add_book = ListAddBook.new
   end
 
   def options
@@ -66,5 +68,16 @@ class App
 
   def add_music_album
     @music_list.create_album
+
+  def list_books
+    @list_add_book.list_books
+  end
+
+  def list_labels
+    @list_add_book.list_labels
+  end
+
+  def add_book
+    @list_add_book.add_book
   end
 end
