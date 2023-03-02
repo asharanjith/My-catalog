@@ -5,6 +5,8 @@ require_relative './classes/music_list'
 class App
   def initialize
     @music_list = MusicList.new
+    @music_list.recover_data
+    @music_list.recover_genre
     @list_add_book = ListAddBook.new
   end
 
@@ -51,6 +53,8 @@ class App
       choice = gets.chomp.to_i
       if choice == 10
         puts 'Thank you for using the app!'
+        @music_list.save
+        @music_list.save_genre
         break
       end
       if choice >= 1 && choice < 10
