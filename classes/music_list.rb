@@ -1,5 +1,6 @@
 require_relative './item'
 require_relative './music'
+require_relative './genre'
 require 'json'
 
 class MusicList
@@ -18,7 +19,7 @@ class MusicList
 
   def list_genre
     puts 'No genre added' if @genres.empty?
-    @genres.each { |genre| puts "#{genre.id}. #{genre.name}" }
+    @genres.each { |genre| puts "id: #{genre.id} Name: #{genre.name}" }
     puts ''
   end
 
@@ -30,9 +31,7 @@ class MusicList
 
     @albums << MusicAlbum.new(publish_date, on_spotify)
     puts 'Album created successfully'
-  end
 
-  def create_genre
     print 'Add genre (Comedy, Horror) : '
     name = gets.chomp
     @genres << Genre.new(name)
@@ -54,5 +53,22 @@ class MusicList
     end
     album_load = album_store.map { |music| MusicAlbum.new(music['publish_date'], music['on_spotify']) }
     @albums.concat(album_load) unless album_load.empty?
+  end
+
+  def save_genre
+    genres = @genres.map { |genre| { name: genre.name } }
+    File.write('store/genre.json', JSON.pretty_generate(genres))
+  end
+
+  def recover_genre
+    return unless File.exist?('store/genre.json')
+
+    genre_store = begin
+      JSON.parse(File.read('store/genre.json'))
+    rescue StandardError
+      []
+    end
+    genre_load = genre_store.map { |genre| Genre.new(genre['name']) }
+    @genres.concat(genre_load) unless genre_load.empty?
   end
 end
