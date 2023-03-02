@@ -1,7 +1,6 @@
 require './storage_utility/list_add_book'
 require './storage_utility/book_storage'
 require_relative './classes/music_list'
-require './classes/list_add_book'
 
 class App
   def initialize
