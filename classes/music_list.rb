@@ -1,5 +1,6 @@
 require_relative './item'
 require_relative './music'
+require 'json'
 
 class MusicList
   attr_accessor :album, :genre
@@ -36,5 +37,23 @@ class MusicList
     name = gets.chomp
     @genres << Genre.new(name)
     puts "#{name} genre created successfully"
+  end
+
+  def save
+    albums = @albums.map { |album| { id: album.id, publish_date: album.publish_date, on_spotify: album.on_spotify } }
+    save_music = File.write('store/music.json', JSON.pretty_generate(albums))
+  end
+
+  def recover_data
+    if File.exist?('store/music.json')
+      album_store = JSON.parse(File.read('store/music.json'))
+    else
+      File.write('store/music.json', [])
+      album_store = []
+    end
+    return if album_store.empty?
+
+    album_load = album_store.map { |music| MusicAlbum.new(music['publish_date'], music['on_spotify']) }
+    album_load.map { |album| @albums << album }
   end
 end
