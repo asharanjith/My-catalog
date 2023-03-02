@@ -1,5 +1,6 @@
 require_relative './item'
 require_relative './music'
+require_relative './genre'
 
 class MusicList
   attr_accessor :album, :genre
@@ -29,9 +30,7 @@ class MusicList
 
     @albums << MusicAlbum.new(publish_date, on_spotify)
     puts 'Album created successfully'
-  end
 
-  def create_genre
     print 'Add genre (Comedy, Horror) : '
     name = gets.chomp
     @genres << Genre.new(name)
