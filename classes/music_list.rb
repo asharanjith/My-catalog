@@ -41,19 +41,18 @@ class MusicList
 
   def save
     albums = @albums.map { |album| { id: album.id, publish_date: album.publish_date, on_spotify: album.on_spotify } }
-    save_music = File.write('store/music.json', JSON.pretty_generate(albums))
+    return File.write('store/music.json', JSON.pretty_generate(albums))
   end
 
   def recover_data
-    if File.exist?('store/music.json')
-      album_store = JSON.parse(File.read('store/music.json'))
-    else
-      File.write('store/music.json', [])
-      album_store = []
-    end
-    return if album_store.empty?
+    return unless File.exist?('store/music.json')
 
+    album_store = begin
+      JSON.parse(File.read('store/music.json'))
+    rescue StandardError
+      []
+    end
     album_load = album_store.map { |music| MusicAlbum.new(music['publish_date'], music['on_spotify']) }
-    album_load.map { |album| @albums << album }
+    @albums.concat(album_load) unless album_load.empty?
   end
 end
