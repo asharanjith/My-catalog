@@ -9,8 +9,8 @@ describe MusicAlbum do
     expect(musicalbum).to be_instance_of MusicAlbum
   end
 
-  it 'can_be_archived? method should return true' do
-    musicalbum = MusicAlbum.new(true, '2023/03/01')
+  it 'Should return the same data and return false' do
+    musicalbum = MusicAlbum.new('2023/03/01', true)
     expect(musicalbum.publish_date).to eq('2023/03/01')
     expect(musicalbum.archived).to be false
   end
