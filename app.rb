@@ -68,6 +68,7 @@ class App
 
   def add_music_album
     @music_list.create_album
+  end
 
   def list_books
     @list_add_book.list_books
