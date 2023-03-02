@@ -19,12 +19,9 @@ class Item
     @author = author
   end
 
-  def add_source
-    @source = source
-  end
-
   def add_label
     @label = label
+    label.add_item(self) unless label.items.include?(self)
   end
 
   def move_to_archive
