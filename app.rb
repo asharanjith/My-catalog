@@ -1,5 +1,6 @@
+require './storage_utility/list_add_book'
+require './storage_utility/book_storage'
 require_relative './classes/music_list'
-require './classes/list_add_book'
 
 class App
   def initialize
@@ -46,6 +47,8 @@ class App
   def selected_option
     cases = methods_list
     loop do
+      write_data('books', @list_add_book.books)
+      write_data('labels', @list_add_book.labels)
       options
       choice = gets.chomp.to_i
       if choice == 10

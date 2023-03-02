@@ -1,12 +1,27 @@
-require_relative 'book'
-require_relative 'label'
+require_relative '../classes/book'
+require_relative '../classes/label'
+require 'json'
 
 class ListAddBook
   attr_accessor :books, :labels
 
   def initialize
+    base_path = "#{Dir.pwd}/json_files"
+
     @books = []
+    books_json = File.read("#{base_path}/books.json")
+    unless books_json.empty?
+      JSON.parse(books_json).each do |book|
+        @books.push(Book.new(book['publish_date'], book['publisher'], book['cover_state']))
+      end
+    end
     @labels = []
+    labels_json = File.read("#{base_path}/labels.json")
+    return if labels_json.empty?
+
+    JSON.parse(labels_json).each do |label|
+      @labels.push(Label.new(label['title'], label['color']))
+    end
   end
 
   def add_book
