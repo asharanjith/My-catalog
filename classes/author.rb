@@ -12,4 +12,12 @@ class Author
     @items.push(item)
     item.author = self
   end
+
+  def to_json(*_args)
+    {
+      id: @id,
+      first_name: @first_name,
+      last_name: @last_name
+    }.to_json
+  end
 end
