@@ -6,8 +6,8 @@ base_path = "#{Dir.pwd}/json_files"
 
 File.open("#{base_path}/books.json", 'w') unless File.exist?("#{base_path}/books.json")
 File.open("#{base_path}/labels.json", 'w') unless File.exist?("#{base_path}/labels.json")
-# File.open("#{base_path}/games.json", 'w') unless File.exist?("#{base_path}/games.json")
-# File.open("#{base_path}/authors.json", 'w') unless File.exist?("#{base_path}/authors.json")
+File.open("#{base_path}/games.json", 'w') unless File.exist?("#{base_path}/games.json")
+File.open("#{base_path}/authors.json", 'w') unless File.exist?("#{base_path}/authors.json")
 File.open("#{base_path}/music.json", 'w') unless File.exist?("#{base_path}/music.json")
 File.open("#{base_path}/genre.json", 'w') unless File.exist?("#{base_path}/genre.json")
 
