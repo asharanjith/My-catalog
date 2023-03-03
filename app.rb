@@ -102,5 +102,4 @@ class App
   def list_authors
     @add_list_game.list_authors
   end
-
 end
