@@ -22,16 +22,13 @@ class GameList
     first_name = gets.chomp
     print 'Please, type the game author last name: '
     last_name = gets.chomp
-
     new_game = Game.new(multiplayer, last_played_at, publish_date)
     @games.push(new_game)
-    JSON.dump(@games, File.open('json_files/games.json', 'w'))
-    puts 'New game added'
-
-    author = Author.new(first_name, last_name)
-    @authors.push(author)
-    JSON.dump(@authors, File.open('json_files/authors.json', 'w'))
-    puts 'New author added'
+    new_author = Author.new(first_name, last_name)
+    @authors.push(new_author)
+    File.write('json_files/games.json', @games.to_json)
+    File.write('json_files/authors.json', @authors.to_json)
+    puts 'Game added'
   end
 
   def list_games
