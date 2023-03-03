@@ -95,7 +95,7 @@ class App
     @add_list_game.add_game
   end
 
-  def list_game
+  def list_games
     @add_list_game.list_games
   end
 

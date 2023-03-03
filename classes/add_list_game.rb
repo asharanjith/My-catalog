@@ -35,19 +35,29 @@ class GameList
   end
 
   def list_games
-    puts 'Games list is empty! Add a game.' if @games.empty?
-    JSON.parse(File.read('json_files/games.json')).each do |game|
-      @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
-    end
+    if @games.empty?
+      puts 'Games list is empty! Add a game.' 
+    else
+      JSON.parse(File.read('json_files/games.json')).each do |game|
+        @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
+      end
 
-    @games.each do |game|
-     puts "Last played at: #{game.last_played_at} - published: #{game.publish_date}" - "Multiplayer: #{game.multiplayer}"
+      @games.each do |game|
+        puts "Last played at: #{game.last_played_at} - published: #{game.publish_date} - Multiplayer: #{game.multiplayer}"
+      end
     end
   end
 
   def list_authors
-    @authors.each do |author|
-      puts "ID: #{author.id}, First name: #{author.first_name}, Last name: #{author.last_name}"
+    if @authors.empty?
+      puts 'Authors list is empty! Add an author.'
+    else
+      JSON.parse(File.read('json_files/authors.json')).each do |author|
+        @authors.push(Author.new(author['first_name'], author['last_name']))
+      end
+      @authors.each do |author|
+        puts "ID: #{author.id}, First name: #{author.first_name}, Last name: #{author.last_name}"
+      end
     end
   end
 
