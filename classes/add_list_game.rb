@@ -36,14 +36,14 @@ class GameList
 
   def list_games
     if @games.empty?
-      puts 'Games list is empty! Add a game.' 
+      puts 'Games list is empty! Add a game.'
     else
       JSON.parse(File.read('json_files/games.json')).each do |game|
         @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
       end
 
       @games.each do |game|
-        puts "Last played at: #{game.last_played_at} - published: #{game.publish_date} - Multiplayer: #{game.multiplayer}"
+        puts "Last played at: #{game.last_played_at} - published: #{game.publish_date} -    Multiplayer: #{game.multiplayer}"
       end
     end
   end
@@ -60,5 +60,4 @@ class GameList
       end
     end
   end
-
 end
