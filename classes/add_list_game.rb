@@ -8,7 +8,13 @@ class GameList
 
   def initialize
     @games = []
+    JSON.parse(File.read('json_files/games.json')).each do |game|
+      @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
+    end
     @authors = []
+    JSON.parse(File.read('json_files/authors.json')).each do |author|
+      @authors.push(Author.new(author['first_name'], author['last_name']))
+    end
   end
 
   def add_game
@@ -32,10 +38,6 @@ class GameList
   end
 
   def list_games
-    JSON.parse(File.read('json_files/games.json')).each do |game|
-      @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
-    end
-
     puts 'Games list is empty! Add a game.' if @games.empty?
 
     @games.each do |game|
@@ -45,10 +47,6 @@ class GameList
   end
 
   def list_authors
-    JSON.parse(File.read('json_files/authors.json')).each do |author|
-      @authors.push(Author.new(author['first_name'], author['last_name']))
-    end
-
     puts 'Authors list is empty! Add an author.' if @authors.empty?
 
     @authors.each do |author|
