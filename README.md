@@ -19,7 +19,9 @@
 
 ## 📖 My catalog <a name="about-project"></a>
 
-**My catalog** This is a console app project to help you to keep a record of different types of things you own: books, music albums, movies, and games.
+**My catalog** This is a console app project to help you to keep a record of different types of things you own: books, music albums, movies, and games. The app is developed on the basis of the below UML diagram.
+![catalog_of_my_things](https://user-images.githubusercontent.com/108219288/222659871-8e7ce480-72cf-43f8-927e-84d9a564c8b5.png)
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
