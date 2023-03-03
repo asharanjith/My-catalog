@@ -40,14 +40,14 @@ class MusicList
 
   def save
     albums = @albums.map { |album| { id: album.id, publish_date: album.publish_date, on_spotify: album.on_spotify } }
-    File.write('store/music.json', JSON.pretty_generate(albums))
+    File.write('json_files/music.json', JSON.pretty_generate(albums))
   end
 
   def recover_data
-    return unless File.exist?('store/music.json')
+    return unless File.exist?('json_files/music.json')
 
     album_store = begin
-      JSON.parse(File.read('store/music.json'))
+      JSON.parse(File.read('json_files/music.json'))
     rescue StandardError
       []
     end
@@ -57,14 +57,14 @@ class MusicList
 
   def save_genre
     genres = @genres.map { |genre| { name: genre.name } }
-    File.write('store/genre.json', JSON.pretty_generate(genres))
+    File.write('json_files/genre.json', JSON.pretty_generate(genres))
   end
 
   def recover_genre
-    return unless File.exist?('store/genre.json')
+    return unless File.exist?('json_files/genre.json')
 
     genre_store = begin
-      JSON.parse(File.read('store/genre.json'))
+      JSON.parse(File.read('json_files/genre.json'))
     rescue StandardError
       []
     end
