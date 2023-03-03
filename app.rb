@@ -1,6 +1,7 @@
 require './storage_utility/list_add_book'
 require './storage_utility/book_storage'
 require_relative './classes/music_list'
+require './classes/add_list_game'
 
 class App
   def initialize
@@ -8,6 +9,7 @@ class App
     @music_list.recover_data
     @music_list.recover_genre
     @list_add_book = ListAddBook.new
+    @add_list_game = GameList.new
   end
 
   def options
@@ -88,4 +90,17 @@ class App
   def add_book
     @list_add_book.add_book
   end
+
+  def add_game
+    @add_list_game.add_game
+  end
+
+  def list_game
+    @add_list_game.list_games
+  end
+
+  def list_authors
+    @add_list_game.list_authors
+  end
+
 end
