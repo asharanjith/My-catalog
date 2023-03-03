@@ -39,9 +39,7 @@ class GameList
       @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
     end
 
-    if @games.empty?
-      puts 'Games list is empty! Add a game.'
-    end
+    puts 'Games list is empty! Add a game.' if @games.empty?
 
     @games.each do |game|
       puts "Last played at: #{game.last_played_at} - published: #{game.publish_date}
@@ -54,9 +52,7 @@ class GameList
       @authors.push(Author.new(author['first_name'], author['last_name']))
     end
 
-    if @authors.empty?
-      puts 'Authors list is empty! Add an author.'
-    end
+    puts 'Authors list is empty! Add an author.' if @authors.empty?
 
     @authors.each do |author|
       puts "First name: #{author.first_name}, Last name: #{author.last_name}"
