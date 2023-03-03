@@ -43,7 +43,7 @@ class GameList
       end
 
       @games.each do |game|
-        puts "Last played at: #{game.last_played_at} - published: #{game.publish_date} 
+        puts "Last played at: #{game.last_played_at} - published: #{game.publish_date}
                                                      - Multiplayer: #{game.multiplayer}"
       end
     end
